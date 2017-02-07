@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowController">
+   <top>
+      <VBox prefHeight="70.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#clickOnNewPC" text="New PC">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#clickOnOpenPC" text="Open PC">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onRemovePC" text="Remove PC">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onSave" text="Save">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onSaveAs" text="Save As...">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <Menu mnemonicParsing="false" text="Preconfigured PC">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#clickOnOpenPreconfiguredPC" text="Load Preconfigured PC" />
+                              <MenuItem mnemonicParsing="false" onAction="#clickOnAddPreconfiguredPC" text="Add Preconfigured PC to your PC" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#undo" text="Undo">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#redo" text="Redo">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onNameChange" text="Edit Name" />
+                        <MenuItem mnemonicParsing="false" onAction="#clearCart" text="Clear Cart" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#clickOnHelp" text="Open Guide">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                     </items></Menu>
+               </menus>
+            </MenuBar>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="495.0" minWidth="10.0" prefWidth="91.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="518.0" minWidth="10.0" prefWidth="419.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="495.0" minWidth="10.0" prefWidth="22.66668701171875" />
+                <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="589.0" minWidth="10.0" prefWidth="460.33331298828125" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="77.0" text="Component:" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <ChoiceBox fx:id="searchCho" prefHeight="29.0" prefWidth="416.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets left="2.0" />
+                     </GridPane.margin>
+                  </ChoiceBox>
+                  <Label prefHeight="27.0" prefWidth="79.0" text="Your PC" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <ImageView fitHeight="36.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                     <image>
+                        <Image url="@../model/LogoDef.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <HBox prefHeight="373.0" prefWidth="980.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="listTable" prefHeight="426.0" prefWidth="535.0" HBox.hgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="proPro" editable="false" minWidth="200.0" prefWidth="260.0" text="Name" />
+                <TableColumn fx:id="proPrice" editable="false" minWidth="70.0" prefWidth="327.0" text="Price" />
+                  <TableColumn fx:id="proAva" editable="false" minWidth="70.0" prefWidth="0.0" text="Available" />
+              </columns>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <TableView fx:id="addTable" editable="true" prefHeight="426.0" prefWidth="476.0" HBox.hgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="comType" minWidth="-1.0" prefWidth="100.0" text="Category" />
+                  <TableColumn fx:id="comPro" minWidth="130.0" prefWidth="211.0" text="Name" />
+                <TableColumn fx:id="comPrice" minWidth="-Infinity" prefWidth="71.0" text="Price" />
+                  <TableColumn fx:id="comAmount" minWidth="-Infinity" prefWidth="66.0" text="Amount" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="15.0" right="15.0" />
+         </BorderPane.margin>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="113.0" prefWidth="990.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="113.0" prefWidth="516.0" HBox.hgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="273.3333740234375" minWidth="10.0" prefWidth="260.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="251.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="41.33331298828125" minHeight="10.0" prefHeight="35.33331298828125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="34.66668701171875" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <HBox.margin>
+                  <Insets bottom="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <children>
+                  <HBox prefHeight="39.0" prefWidth="506.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Label contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="41.0" text="Name:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="2.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="nameField" maxWidth="8000.0" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="458.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="2.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <opaqueInsets>
+                        <Insets left="5.0" top="10.0" />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox prefHeight="33.0" prefWidth="267.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <children>
+                        <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="99.0" text="Minimum Price:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="minPrice" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#onNumber" prefHeight="29.0" prefWidth="131.0" HBox.hgrow="ALWAYS">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox prefHeight="35.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="99.0" text="Maximum Price:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="maxPrice" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#onNumber" prefHeight="29.0" prefWidth="125.0" HBox.hgrow="ALWAYS">
+                           <opaqueInsets>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </opaqueInsets>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <RadioButton fx:id="stockBut" mnemonicParsing="false" onAction="#onJustAvailables" prefHeight="62.0" prefWidth="249.0" text="Just see availables" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" top="2.0" />
+                     </GridPane.margin>
+                  </RadioButton>
+               </children>
+            </GridPane>
+            <GridPane prefHeight="113.0" prefWidth="469.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.3333740234375" minWidth="10.0" prefWidth="340.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.66668701171875" minWidth="10.0" prefWidth="117.6666259765625" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="45.33331298828125" minHeight="10.0" prefHeight="39.33331298828125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="53.66668701171875" minHeight="10.0" prefHeight="53.66668701171875" vgrow="ALWAYS" />
+              </rowConstraints>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBuy" prefHeight="87.0" prefWidth="91.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="79.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../model/carrito.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <HBox prefHeight="39.0" prefWidth="222.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="48.0" prefWidth="44.0" text="Total:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="3.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="total" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="71.0" text="0.0" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets left="3.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="39.0" prefWidth="105.0" text="(taxes not included)">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.0" minWidth="10.0" prefWidth="87.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="148.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="89.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="addBut" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAdd" prefHeight="44.0" prefWidth="89.0" text="Add" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="2.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="remBut" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onRemove" prefHeight="44.0" prefWidth="89.0" text="Remove" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="2.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <children>
+                              <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onPlus" prefHeight="44.0" prefWidth="30.0" text="+">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="3.0" />
+                                 </padding>
+                              </Button>
+                              <TextField fx:id="amountTF" alignment="CENTER" onKeyTyped="#onNumber" prefHeight="44.0" prefWidth="50.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></TextField>
+                              <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onMinus" prefHeight="44.0" prefWidth="30.0" text="-">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets right="3.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
